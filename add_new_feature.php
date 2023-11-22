@@ -28,11 +28,33 @@ include 'conn.php';
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>01</td>
-            <td>Airbags</td>
-            <td>01</td>
-        </tr>
+        <?php
+        $sql = "SELECT * FROM features";
+        $result = mysqli_query($conn,$sql);
+
+        if($result){
+            while($raw = mysqli_fetch_assoc($result)){
+                $id = $raw['idfeatures'];
+                $feature = $raw['feature'];
+
+//                add data for table raws
+                echo '
+                <tr>
+                    <td> '.$id.' </td>
+                    <td>'.$feature.'</td>
+                    
+                    <td><a href="#" class="btn btn-success btn-sm">Update</a>
+                        <a href="operationalPages/delete_feature.php? featureID='.$id.'" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                    
+                </tr>
+                ';
+
+
+            }
+        }
+        ?>
+
         </tbody>
     </table>
 
