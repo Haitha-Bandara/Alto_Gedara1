@@ -53,10 +53,45 @@ include 'conn.php';
                 <input type="text" class="form-control" name="" id="" required placeholder="">
 
             </div>
+            <br>
             <div class="row">
+
                 <?php
+                $sql = "SELECT * FROM `features`";
+                $result = mysqli_query($conn,$sql);
+
+                if ($result){
+                    while($check = mysqli_fetch_assoc($result)){
+                        $feature = $check['feature'];
+                        $id = $check['idfeatures'];
+
+                        echo '
+                        <div class="form-check">
+                            <input class="form-check-input" name=" '.$id.' " type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                                '.$feature.'
+                            </label>
+                        </div>
+                        ';
+
+                    }
+                }
 
                 ?>
+
+                <br>
+                <div class=" input-group col-12 mb-3">
+                    <input type="file" class="form-control" id="inputGroupFile02">
+                    <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                </div>
+
+                <div class="row">
+                    <button class="btn btn-primary"> Add </button>
+                </div>
+
+
+
+
             </div>
 
         </div>
