@@ -13,12 +13,31 @@ include 'conn.php';
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Add New Feature</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+    <style>
+        #add-new{
+            padding-top: 20px;
+        }
+    </style>
 
 </head>
 <body>
 
 <div class="container">
+    <div class="container " id="add-new">
+        <form action="" class="row ">
+            <div class="col-9">
+                <input type="text" class="form-control ">
+            </div>
+            <div class="col-3">
+                <button class="btn btn-primary " type="submit"> Add New</button>
+            </div>
+
+
+        </form>
+
+    </div>
+
+    <br>
     <table class="table table-hover">
         <thead>
         <tr>
