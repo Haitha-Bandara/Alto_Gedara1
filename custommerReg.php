@@ -2,19 +2,21 @@
 include 'conn.php';
 
 
-if(isset($_POST['submit'])){
+
+
+if(isset($_POST['save'])){
     $firstName = $_POST['customerFname'];
     $lastName = $_POST['customerLname'];
     $nic = $_POST['customerNIC'];
     $mobileNum = $_POST['customerTP'];
     $address = $_POST['customerAddress'];
-    $vehicleNum = $_POST['cusREg003VNum'];
+    $vehicleNum = $_POST['customerVehicle'];
 
 
-    $sql= " INSERT INTO `seller` (first_name,last_name,nic,mobile_num,address,vehicle_num) 
- VALUES ('$firstName','$lastName','$nic','$mobileNum','$address','$vehicleNum')";
+    $sql= " INSERT INTO `seller` (customerID,first_name,last_name,nic,mobile_num,address,vehicle_num) 
+ VALUES (customerID,'$firstName','$lastName','$nic','$mobileNum','$address','$vehicleNum')";
 
-    $result = mysqli_query($sql);
+    $result = mysqli_query($conn,$sql);
     if($result){
         echo 'SAVED....';
     }
@@ -46,6 +48,19 @@ if(isset($_POST['submit'])){
        hr{
            width: 40%;
        }
+       /*#capture{*/
+       /*    padding: 20px;*/
+       /*    height: 150px;*/
+       /*    width: 100%;*/
+       /*    border-radius: 10px;*/
+
+       /*}*/
+       /*#capture-img{*/
+       /*    height: 100px;*/
+       /*}*/
+       #capture-btn{
+           border-style: ;
+       }
     </style>
 
 </head>
@@ -53,47 +68,52 @@ if(isset($_POST['submit'])){
 <div class="container col-12 align-items-center">
 <h2 id="header1" >New Customer Registration</h2>
     <hr>
-<form   method="POST" class="col-8">
+<form   method="POST" action="custommerReg.php" class="col-8">
     
     
     <div class="row">
        <div class="mb-2 col-6 ">
          <label for="cusREg003FN" class="form-label">First Name</label>
-         <input type="text" class="form-control" name="customerFname" id="cusREg003FN "  placeholder="">
+         <input type="text" class="form-control" name="customerFname" id="cusREg003FN " required placeholder="">
          
        </div>
        <div class="mb-3 col-6 ">
          <label for="cusREg00LN" class="form-label">Last Name</label>
-         <input type="text" class="form-control" name="customerLname" id="cusREg003LN"  placeholder="">
+         <input type="text" class="form-control" name="customerLname" id="cusREg003LN"  required placeholder="">
          
        </div>
        <div class="mb-3 col-6">
          <label for="cusREg00NIC" class="form-label">NIC</label>
-         <input type="text" class="form-control" name="customerNIC" id="cusREg003NIC"  placeholder="">
+         <input type="text" class="form-control" name="customerNIC" id="cusREg003NIC" required  placeholder="">
          
        </div>
        <div class="mb-3 col-6">
          <label for="cusREg00TP" class="form-label">Mobile Number</label>
-         <input type="text" class="form-control" name="customerTP" id="cusREg003TP"  placeholder="">
+         <input type="text" class="form-control" name="customerTP" id="cusREg003TP"  required  placeholder="">
          
        </div>
        <div class="mb-3">
          <label for="cusREg00AD" class="form-label">Address</label>
-         <input type="text" class="form-control" name="customerAddress" id="cusREg003AD"  placeholder="">
+         <input type="text" class="form-control" name="customerAddress" id="cusREg003AD" required placeholder="">
          
        </div>
        <div class="mb-3 col-12">
          <label for="cusREg003VNum" class="form-label">Vehicle Identification Number</label>
-         <input type="text"
-           class="form-control" name="customerVehicle" id="cusREg003VNum"  placeholder="">
+         <input type="text" class="form-control" name="customerVehicle" id="cusREg003VNum" required placeholder="">
        </div>
 
+<!--        image capture-->
+        <div class="col-2 row capture" id="capture" onclick="">
+           <img id="capture-img" src="media/capture.png" alt="">
 
+        </div>
 
        <br>
+
+<!--        Submit Button -->
        <div class="d-flex align-tem-center col-12">
    
-           <button type="submit" class="btn btn-primary col-12">Submit</button>
+           <button type="submit" name="save" class="btn btn-primary col-12">Submit</button>
        </div>
 
     </div>
