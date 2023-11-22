@@ -44,7 +44,7 @@ include 'conn.php';
                     <td>'.$feature.'</td>
                     
                     <td><a href="#" class="btn btn-success btn-sm">Update</a>
-                        <a href="delete_feature.php? featureID='.$id.'" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="delete_feature.php?featureID='.$id.'" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                     
                 </tr>
