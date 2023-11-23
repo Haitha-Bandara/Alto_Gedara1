@@ -27,7 +27,8 @@ include 'conn.php';
         </thead>
         <tbody>
         <?php
-        $sql = "SELECT * FROM `seller`";
+        $db = 'seller';
+        $sql = "SELECT * FROM `$db`";
         $result = mysqli_query($conn,$sql);
 
         if($result){
@@ -49,7 +50,7 @@ include 'conn.php';
                     <td>'.$vehicle_num.'</td>
                     <td>
                     <a href="#" class="btn btn-success btn-sm">Update</a>
-                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="delete_feature.php?user='.$id.'" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                     
                 </tr>

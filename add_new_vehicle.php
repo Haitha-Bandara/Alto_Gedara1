@@ -56,6 +56,7 @@ include 'conn.php';
             <br>
             <div class="row">
 
+            <!--lode features from table-->
                 <?php
                 $sql = "SELECT * FROM `features`";
                 $result = mysqli_query($conn,$sql);
