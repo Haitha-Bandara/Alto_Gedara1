@@ -29,7 +29,7 @@ include 'conn.php';
                 <input type="text" class="form-control ">
             </div>
             <div class="col-3">
-                <button class="btn btn-primary " type="submit"> Add New</button>
+                <a href="delete_feature.php?featureID='.$id.'" class="btn btn-primary btn-sm">Add New</a>
             </div>
 
 
