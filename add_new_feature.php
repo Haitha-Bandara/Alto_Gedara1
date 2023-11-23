@@ -3,6 +3,19 @@ include 'conn.php';
 
 ?>
 
+<?php
+if(isset($_POST['add'])){
+    $feature = $_POST['New_feature'];
+
+    $query = "INSERT INTO `features` (feature) VALUES ('$feature')";
+    $resultAdd = mysqli_query($conn,$query);
+    if($resultAdd){
+        echo 'ok';
+    }
+}
+
+?>
+
 
 <!doctype html>
 <html lang="en">
@@ -24,18 +37,21 @@ include 'conn.php';
 
 <div class="container">
     <div class="container " id="add-new">
-        <form action="" class="row ">
+        <form action="" method="post" class="row ">
             <div class="col-9">
-                <input type="text" class="form-control ">
+                <input type="text" name="New_feature" class="form-control ">
             </div>
             <div class="col-3">
-                <a href="delete_feature.php?featureID='.$id.'" class="btn btn-primary btn-sm">Add New</a>
+                <button class="btn btn-primary "  name="add" type="submit"> Add New</button>
+
             </div>
 
 
         </form>
 
     </div>
+
+
 
     <br>
     <table class="table table-hover">
