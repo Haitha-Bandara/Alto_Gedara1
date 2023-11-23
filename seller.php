@@ -32,6 +32,7 @@ include 'conn.php';
 
         if($result){
             while ($tr = mysqli_fetch_assoc($result)){
+                $id = $tr['customerID'];
                 $f_name = $tr['first_name'];
                 $l_name = $tr['last_name'];
                 $nic = $tr['nic'];
