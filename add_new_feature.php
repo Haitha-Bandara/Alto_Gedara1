@@ -15,7 +15,19 @@ if(isset($_POST['add'])){
 }
 
 ?>
-
+<?php
+//Add update FN
+function update(){
+                        echo'<td>
+                            <div class="input-group col-2 mb-3">
+                                <input type="text" class="form-control" placeholder="Recipient s username" aria-label="Recipient s username" aria-describedby="button-addon2">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+                            </div> 
+                            </td>
+                            </tr>
+                            ';
+                    }
+?>
 
 <!doctype html>
 <html lang="en">
@@ -60,6 +72,7 @@ if(isset($_POST['add'])){
             <th>Feature Id</th>
             <th>Feature </th>
             <th>Feature Manage</th>
+            <th>Option</th>
         </tr>
         </thead>
         <tbody>
@@ -80,12 +93,23 @@ if(isset($_POST['add'])){
                     <td> '.$id.' </td>
                     <td>'.$feature.'</td>
                     
-                    <td><a href="#" class="btn btn-success btn-sm">Update</a>
+                    <td>
+                        
+                        <a  href="?run=triger"  class="btn btn-success btn-sm">Update</a>
                         <a href="delete_feature.php?featureID='.$id.'" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                     
-                </tr>
+                    
+                
                 ';
+                    if(isset($_GET['run'])){
+
+                           update();
+
+                    }
+
+
+
 
                 }
 
