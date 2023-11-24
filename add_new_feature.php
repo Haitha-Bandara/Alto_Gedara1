@@ -10,7 +10,7 @@ if(isset($_POST['add'])){
     $query = "INSERT INTO `features` (feature) VALUES ('$feature')";
     $resultAdd = mysqli_query($conn,$query);
     if($resultAdd){
-        echo 'ok';
+        echo 'SAVED....';
     }
 }
 
@@ -74,7 +74,8 @@ if(isset($_POST['add'])){
                 $fStatus = $raw['status'];
 
 //                add data for table raws
-                echo '
+                if ($fStatus==0){
+                    echo '
                 <tr>
                     <td> '.$id.' </td>
                     <td>'.$feature.'</td>
@@ -85,6 +86,8 @@ if(isset($_POST['add'])){
                     
                 </tr>
                 ';
+
+                }
 
 
             }
