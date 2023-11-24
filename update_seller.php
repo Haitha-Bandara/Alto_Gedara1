@@ -5,11 +5,9 @@ $seller_ID =$_GET['seller'];
 echo $seller_ID;
 
 //set seller data for values
-$getSQL="SELECT * FROM `seller` ";
+$getSQL="SELECT * FROM `seller` WHERE customerID='$seller_ID' LIMIT 1 ";
 $getResult = mysqli_query($conn,$getSQL);
-
-if($dataIN = mysqli_fetch_assoc($getResult)){
-    while($dataIN['customerID'] == $seller_ID){
+if($dataIN=mysqli_fetch_array($getResult)){
         $f_name = $dataIN['first_name'];
         $l_name = $dataIN['last_name'];
         $nicG = $dataIN['nic'];
@@ -19,7 +17,6 @@ if($dataIN = mysqli_fetch_assoc($getResult)){
         $seller_statusG= $dataIN['sellerStatus'];
     }
 
-}
 
 
 //send new updated values
