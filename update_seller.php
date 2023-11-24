@@ -91,39 +91,39 @@ if(isset($_POST['update'])){
         <div class="row">
             <div class="mb-2 col-6 ">
                 <label for="cusREg003FN" class="form-label">First Name</label>
-                <input type="text" class="form-control" <?php echo ($f_name); ?>name="customerFname1" id="cusREg003FN " required placeholder="">
+                <input type="text" class="form-control" value="<?php echo ($f_name); ?>" name="customerFname1" id="cusREg003FN " required placeholder="">
 
             </div>
             <div class="mb-3 col-6 ">
                 <label for="cusREg00LN" class="form-label">Last Name</label>
-                <input type="text" class="form-control" name="customerLname1" id="cusREg003LN"  required placeholder="">
+                <input type="text" class="form-control" value="<?php echo ($l_name); ?>" name="customerLname1" id="cusREg003LN"  required placeholder="">
 
             </div>
             <div class="mb-3 col-6">
                 <label for="cusREg00NIC" class="form-label">NIC</label>
-                <input type="text" class="form-control" name="customerNIC1" id="cusREg003NIC" required  placeholder="">
+                <input type="text" class="form-control" value="<?php echo ($nicG); ?>" name="customerNIC1" id="cusREg003NIC" required  placeholder="">
 
             </div>
             <div class="mb-3 col-6">
                 <label for="cusREg00TP" class="form-label">Mobile Number</label>
-                <input type="text" class="form-control" name="customerTP1" id="cusREg003TP"  required  placeholder="">
+                <input type="text" class="form-control" value="<?php echo ($mobile_numG); ?>" name="customerTP1" id="cusREg003TP"  required  placeholder="">
 
             </div>
             <div class="mb-3">
                 <label for="cusREg00AD" class="form-label">Address</label>
-                <input type="text" class="form-control" name="customerAddress1" id="cusREg003AD" required placeholder="">
+                <input type="text" class="form-control" value="<?php echo ($addressG); ?>" name="customerAddress1" id="cusREg003AD" required placeholder="">
 
             </div>
             <div class="mb-3 col-12">
                 <label for="cusREg003VNum" class="form-label">Vehicle Identification Number</label>
-                <input type="text" class="form-control" name="customerVehicle1" id="cusREg003VNum" required placeholder="">
+                <input type="text" class="form-control" value="<?php echo ($vehicle_numG); ?>" name="customerVehicle1" id="cusREg003VNum" required placeholder="">
             </div>
 
             <!--        image capture-->
-            <div class="col-2 row capture" id="capture" onclick="">
-                <img id="capture-img" src="media/capture.png" alt="">
-
-            </div>
+<!--            <div class="col-2 row capture" id="capture" onclick="">-->
+<!--                <img id="capture-img" src="media/capture.png" alt="">-->
+<!---->
+<!--            </div>-->
 
             <br>
 
