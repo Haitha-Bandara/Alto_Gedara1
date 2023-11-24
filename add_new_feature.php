@@ -71,6 +71,7 @@ if(isset($_POST['add'])){
             while($raw = mysqli_fetch_assoc($result)){
                 $id = $raw['idfeatures'];
                 $feature = $raw['feature'];
+                $fStatus = $raw['status'];
 
 //                add data for table raws
                 echo '

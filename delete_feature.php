@@ -10,7 +10,7 @@ include 'conn.php';
 
 if(isset($_GET['featureID'])){
     $f_id = $_GET['featureID'];
-    $sql = "DELETE FROM `features` WHERE idfeatures = $f_id";
+    $sql = "UPDATE`features` SET status='1' WHERE idfeatures = $f_id";
     $result = mysqli_query($conn,$sql);
 
 
