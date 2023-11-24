@@ -4,17 +4,36 @@ include 'conn.php';
 $seller_ID =$_GET['seller'];
 echo $seller_ID;
 
+//set seller data for values
+$getSQL="SELECT * FROM `seller` ";
+$getResult = mysqli_query($conn,$getSQL);
+
+if($dataIN = mysqli_fetch_assoc($getResult)){
+    while($dataIN['customerID'] == $seller_ID){
+        $f_name = $dataIN['first_name'];
+        $l_name = $dataIN['last_name'];
+        $nicG = $dataIN['nic'];
+        $mobile_numG = $dataIN['mobile_num'];
+        $addressG = $dataIN['address'];
+        $vehicle_numG = $dataIN['vehicle_num'];
+        $seller_statusG= $dataIN['sellerStatus'];
+    }
+
+}
+
+
+//send new updated values
 if(isset($_POST['update'])){
-    $firstName = $_POST['customerFname'];
-    $lastName = $_POST['customerLname'];
-    $nic = $_POST['customerNIC'];
-    $mobileNum = $_POST['customerTP'];
-    $address = $_POST['customerAddress'];
-    $vehicleNum = $_POST['customerVehicle'];
+    $firstName = $_POST['customerFname1'];
+    $lastName = $_POST['customerLname1'];
+    $nic = $_POST['customerNIC1'];
+    $mobileNum = $_POST['customerTP1'];
+    $address = $_POST['customerAddress1'];
+    $vehicleNum = $_POST['customerVehicle1'];
 
 
-    $sql= " UPDATE `seller` SET first_name='$firstName', last_name='$lastName', nic='$nic', mobile_num='$mobileNum', 
-                     address='$address', vehicle_num='$vehicleNum' WHERE customerID = $seller_ID";
+    $sql= "UPDATE `seller` SET first_name='$firstName', last_name='$lastName', nic='$nic', mobile_num='$mobileNum',
+            address='$address', vehicle_num='$vehicleNum' WHERE customerID = $seller_ID";
 
     $result = mysqli_query($conn,$sql);
     if($result){
@@ -75,32 +94,32 @@ if(isset($_POST['update'])){
         <div class="row">
             <div class="mb-2 col-6 ">
                 <label for="cusREg003FN" class="form-label">First Name</label>
-                <input type="text" class="form-control" name="customerFname" id="cusREg003FN " required placeholder="">
+                <input type="text" class="form-control" <?php echo ($f_name); ?>name="customerFname1" id="cusREg003FN " required placeholder="">
 
             </div>
             <div class="mb-3 col-6 ">
                 <label for="cusREg00LN" class="form-label">Last Name</label>
-                <input type="text" class="form-control" name="customerLname" id="cusREg003LN"  required placeholder="">
+                <input type="text" class="form-control" name="customerLname1" id="cusREg003LN"  required placeholder="">
 
             </div>
             <div class="mb-3 col-6">
                 <label for="cusREg00NIC" class="form-label">NIC</label>
-                <input type="text" class="form-control" name="customerNIC" id="cusREg003NIC" required  placeholder="">
+                <input type="text" class="form-control" name="customerNIC1" id="cusREg003NIC" required  placeholder="">
 
             </div>
             <div class="mb-3 col-6">
                 <label for="cusREg00TP" class="form-label">Mobile Number</label>
-                <input type="text" class="form-control" name="customerTP" id="cusREg003TP"  required  placeholder="">
+                <input type="text" class="form-control" name="customerTP1" id="cusREg003TP"  required  placeholder="">
 
             </div>
             <div class="mb-3">
                 <label for="cusREg00AD" class="form-label">Address</label>
-                <input type="text" class="form-control" name="customerAddress" id="cusREg003AD" required placeholder="">
+                <input type="text" class="form-control" name="customerAddress1" id="cusREg003AD" required placeholder="">
 
             </div>
             <div class="mb-3 col-12">
                 <label for="cusREg003VNum" class="form-label">Vehicle Identification Number</label>
-                <input type="text" class="form-control" name="customerVehicle" id="cusREg003VNum" required placeholder="">
+                <input type="text" class="form-control" name="customerVehicle1" id="cusREg003VNum" required placeholder="">
             </div>
 
             <!--        image capture-->
