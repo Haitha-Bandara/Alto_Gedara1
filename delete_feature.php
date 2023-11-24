@@ -24,7 +24,7 @@ if(isset($_GET['featureID'])){
 }
 elseif(isset($_GET['user'])){
     $u_id = $_GET['user'];
-    $sql1 = "DELETE FROM `seller` WHERE customerID = $u_id";
+    $sql1 = "UPDATE `seller` SET sellerStatus ='1' WHERE customerID = $u_id";
     $result = mysqli_query($conn,$sql1);
 
 

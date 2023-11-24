@@ -40,7 +40,8 @@ include 'conn.php';
                 $mobile_num = $tr['mobile_num'];
                 $address = $tr['address'];
                 $vehicle_num = $tr['vehicle_num'];
-
+                $seller_status= $tr['sellerStatus'];
+            if ($seller_status == 0){
                 echo '
                  <tr>
                     <td>'.$f_name.'  '.$l_name.'</td>
@@ -55,6 +56,8 @@ include 'conn.php';
                     
                 </tr>
                 ';
+            }
+
 
             }
         }
