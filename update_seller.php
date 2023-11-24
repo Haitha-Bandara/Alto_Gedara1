@@ -1,15 +1,10 @@
 <?php
 include 'conn.php';
 
-?>
+$seller_ID =$_GET['seller'];
+echo $seller_ID;
 
-<?php
-include 'conn.php';
-
-
-
-
-if(isset($_POST['save'])){
+if(isset($_POST['update'])){
     $firstName = $_POST['customerFname'];
     $lastName = $_POST['customerLname'];
     $nic = $_POST['customerNIC'];
@@ -18,12 +13,12 @@ if(isset($_POST['save'])){
     $vehicleNum = $_POST['customerVehicle'];
 
 
-    $sql= " INSERT INTO `seller` (customerID,first_name,last_name,nic,mobile_num,address,vehicle_num) 
- VALUES (customerID,'$firstName','$lastName','$nic','$mobileNum','$address','$vehicleNum')";
+    $sql= " UPDATE `seller` SET first_name='$firstName', last_name='$lastName', nic='$nic', mobile_num='$mobileNum', 
+                     address='$address', vehicle_num='$vehicleNum' WHERE customerID = $seller_ID";
 
     $result = mysqli_query($conn,$sql);
     if($result){
-        echo 'SAVED....';
+        header("location:seller.php");
     }
 
 }
@@ -35,7 +30,7 @@ if(isset($_POST['save'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Update Seller</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
@@ -72,7 +67,7 @@ if(isset($_POST['save'])){
 </head>
 <body>
 <div class="container col-12 align-items-center">
-    <h2 id="header1" >New Customer Registration</h2>
+    <h2 id="header1" >Update Seller</h2>
     <hr>
     <form   method="POST" action="custommerReg.php" class="col-8">
 
@@ -119,7 +114,7 @@ if(isset($_POST['save'])){
             <!--        Submit Button -->
             <div class="d-flex align-tem-center col-12">
 
-                <button type="submit" name="save" class="btn btn-primary col-12">Submit</button>
+                <button type="submit" name="update" class="btn btn-primary col-12">Update</button>
             </div>
 
         </div>

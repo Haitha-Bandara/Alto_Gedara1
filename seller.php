@@ -50,7 +50,7 @@ include 'conn.php';
                     <td>'.$address.'</td>
                     <td>'.$vehicle_num.'</td>
                     <td>
-                    <a href="#" class="btn btn-success btn-sm">Update</a>
+                    <a href="update_seller.php?seller='.$id.'" class="btn btn-success btn-sm">Update</a>
                     <a href="delete_feature.php?user='.$id.'" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                     
